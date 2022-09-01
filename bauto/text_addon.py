@@ -7,6 +7,7 @@ bl_info = {
 import bpy
 import math
 import bauto.bauto.text_utils as batext
+from bauto.bauto.global_settings import TEXT_3D
 
 class Text2dTo3d(bpy.types.Operator):
     """Transform 2D text into standardized 3D text"""
@@ -15,8 +16,8 @@ class Text2dTo3d(bpy.types.Operator):
     bl_label = "Text 2D to 3D"
     bl_options = {'REGISTER', 'UNDO'} # allow dynamic interaction
 
-    extrude: bpy.props.FloatProperty(name="Extrusion", default=0.122, min=0, max=100)
-    bevel: bpy.props.FloatProperty(name="Bevel depth", default=0.01, min=0, max=10)
+    extrude: bpy.props.FloatProperty(name="Extrusion", default=TEXT_3D['extrude'], min=0, max=100)
+    bevel: bpy.props.FloatProperty(name="Bevel depth", default=TEXT_3D['bevel'], min=0, max=10)
     default_text_style: bpy.props.BoolProperty(name="Adapt text style", default=True)
     
     @classmethod
