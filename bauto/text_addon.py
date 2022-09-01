@@ -28,12 +28,20 @@ class Text2dTo3d(bpy.types.Operator):
         return is_object_mode & active_object_exists
     
     def execute(self, context):
-        obj = context.active_object # TODO: allow multiple objects, selection instead of active object
 
-        if self.default_text_style:
-            batext.make_default_text_style(obj)
+        objs = context.selected_objects
+        n_objs = len(objs)
 
-        batext.make_text_2d_to_3d(obj, self.extrude, self.bevel)
+        assert n_objs > 0, 'At least one object needs to be selected'
+
+        for ii in range(0, n_objs):
+
+            this_obj = objs[ii]
+
+            if self.default_text_style:
+                batext.make_default_text_style(this_obj)
+
+                batext.make_text_2d_to_3d(this_obj, self.extrude, self.bevel)
 
         return {'FINISHED'}
     
