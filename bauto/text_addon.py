@@ -6,6 +6,7 @@ bl_info = {
 
 import bpy
 import math
+
 import bauto.bauto.text_utils as batext
 from bauto.bauto.global_settings import TEXT_3D
 
@@ -97,6 +98,8 @@ def register():
 def unregister():
     bpy.utils.unregister_class(Text2dTo3d)
     bpy.utils.unregister_class(SplitTextToChars)
+
+    # TODO: unregister UI controls?
 
 # class TextRoutinesPanel(bpy.types.Panel):
 #     bl_idname = "OBJECT_PT_text_routines"
