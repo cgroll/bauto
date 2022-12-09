@@ -109,6 +109,21 @@ def unregister():
 
     # TODO: unregister UI controls?
 
+
+## The code below had the intention to create a panel in the properties editor where the exact parameters
+## for certain operators could be dynamically defined (similar to the UI pop-up that comes after the
+## application of an operator). But it did not fully work anyways
+
+
+# TODO:
+# - add a panel to properties editor, object data properties tab ("text tab")
+# - panel name: Text Routines
+# - add operators / animations:
+#   - 2D to 3D (w or w/o text rotation)
+#   - text splitting to characters
+#   - text animations
+
+
 # class TextRoutinesPanel(bpy.types.Panel):
 #     bl_idname = "OBJECT_PT_text_routines"
 #     bl_label = "Text Routines"
@@ -138,15 +153,6 @@ def unregister():
 
 # bpy.utils.register_class(TextRoutinesPanel)
 # kmi = bpy.context.window_manager.keyconfigs.addon.keymaps['File Browser Main'].keymap_items.new("object.text_2d_to_3d", "NONE", "ANY")
-
-
-# TODO:
-# - add a panel to properties editor, object data properties tab ("text tab")
-# - panel name: Text Routines
-# - add operators / animations:
-#   - 2D to 3D (w or w/o text rotation)
-#   - text splitting to characters
-#   - text animations
 
 if __name__ == "__main__":
     register()
